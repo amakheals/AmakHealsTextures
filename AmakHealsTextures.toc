@@ -1,0 +1,10 @@
+## Interface: 80205
+## Author: amakheals
+## Version: 2.0
+## Title: |cfffe7b2cAmakHealsTextures|r
+## Notes: User Interface Texture Pack for World of Warcraft.
+## SavedVariables: AmakHealsUIDB, AmakHealsUIPrivateDB
+## SavedVariablesPerCharacter: AmakHealsUICharacterDB
+## OptionalDeps: ElvUI, WeakAuras2
+## LoadOnDemand: 0
+## DefaultState: enabled
