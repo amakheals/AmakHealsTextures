@@ -13,5 +13,5 @@ end
 
 -- debug print function
 function AmakHealsTextures.print(...)
-	return print(AmakHealsTextures.AddonTitleHeader, ...)
+	return print(AmakHealsTextures.AddonTitleHeader .. ": " .. ...)
 end
