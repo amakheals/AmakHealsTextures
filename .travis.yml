@@ -1,0 +1,36 @@
+language: python
+sudo: false
+
+python:
+  - 3.7
+
+env:
+  - LUA="lua=5.1"
+  - LUA="lua=5.2"
+  - LUA="lua=5.3"
+  - LUA="luajit=2.0"
+  - LUA="luajit=2.1"
+
+before_install:
+  - pip install hererocks
+  - pip install codecov
+  - hererocks here --$LUA -r latest
+  - source here/bin/activate
+  - luarocks install lanes
+  - luarocks install busted
+  - luarocks install cluacov
+  - luarocks install luautf8
+  - luarocks install luasocket
+  - luarocks make || true
+  - busted -c || true
+
+
+install:
+  - luarocks install luacheck
+
+script:
+  - luacheck ./Lib
+
+after_script:
+  - luacov || true
+  - codecov -f luacov.report.out -X gcov || true
