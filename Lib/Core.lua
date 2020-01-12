@@ -1,7 +1,5 @@
 local AddonName, AmakHealsTextures = ...
 
---Lua functions
-local _G, min, format, pairs, gsub, strsplit, unpack, wipe, type, tcopy = _G, min, format, pairs, gsub, strsplit, unpack, wipe, type, table.copy
 --WoW API / Variables
 local GetAddOnInfo = GetAddOnInfo
 local GetBuildInfo = GetBuildInfo

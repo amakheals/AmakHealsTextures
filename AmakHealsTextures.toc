@@ -1,6 +1,6 @@
 ## Interface: 80205
 ## Author: amakheals
-## Version: 2.3.4
+## Version: 2.3.5
 ## Title: |cfffefefeAmakHealsTextures|r
 ## Notes: User Interface Texture Pack for World of Warcraft.
 ## SavedVariables: AmakHealsUIDB, AmakHealsUIPrivateDB
@@ -9,7 +9,7 @@
 ## LoadOnDemand: 0
 ## LoadWith: WeakAuras2
 ## DefaultState: enabled
-## X-Curse-Packaged-Version: 2.3.4
+## X-Curse-Packaged-Version: 2.3.5
 ## X-Curse-Project-Name: AmakHealsTextures
 ## X-Curse-Project-ID: 354628
 ## X-Curse-Repository-ID: wow/addons/amakhealstextures
