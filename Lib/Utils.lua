@@ -6,7 +6,7 @@ local IsAddOnLoaded = IsAddOnLoaded
 
 -- check for optional dependency WeakAuras2
 local WeakAuras = WeakAuras
-if IsAddOnLoaded("WeakAuras2") then
+if select(1, IsAddOnLoaded("WeakAuras2")) then
 	if not WeakAuras then
 		AmakHealsTextures.print("Can't Find Optional Dependencys")
 	else
@@ -14,5 +14,6 @@ if IsAddOnLoaded("WeakAuras2") then
 		WeakAuras.RegisterAddon(AddonName, AmakHealsTextures.PlainAddonTitle, "Data sourced from "..AmakHealsTextures.PlainAddonTitle, "Interface\\Addons\\"..AmakHealsTextures.name.."\\MiscTexturePack\\logo.blp")
 	end
 -- local spellsTextureMap = {}
-
+else
+	AmakHealsTextures.print("Optional Dependency Not Loaded: " .. "WeakAuras2")
 end
