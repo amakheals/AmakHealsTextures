@@ -1,7 +1,11 @@
 local AddonName, AmakHealsTextures = ...
 if AmakHealsTextures.BuildFail(80000) then return end
 
+--WoW API / Variables
+local IsAddOnLoaded = IsAddOnLoaded
+
 -- check for optional dependency WeakAuras2
+local WeakAuras = WeakAuras
 if IsAddOnLoaded("WeakAuras2") then
 	if not WeakAuras then
 		AmakHealsTextures.print("Can't Find Optional Dependencys")
