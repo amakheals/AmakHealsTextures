@@ -38,14 +38,14 @@ AmakHealsTextures.throttleKeys.Add("default")
 AmakHealsTextures.throttleStates = (AmakHealsTextures.throttleStates or {})
 
 -- initialize a key for throttling
-function AmakHealsTextures.initThrottleTick(key) do
+function AmakHealsTextures.initThrottleTick(key)
 	if not AmakHealsTextures.throttleKeys[key] then
 		AmakHealsTextures.throttleKeys[key] = 0
 		AmakHealsTextures.throttleStates[key] = false
 	end
 end
 
-function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate) do
+function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate)
 	-- need to call AmakHealsTextures.initThrottleTick(key) first
 	if not AmakHealsTextures.throttleKeys[resetkey] then return end
 	local theTime = GetTime()
@@ -60,7 +60,7 @@ function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate) do
 	return
 end
 
-function AmakHealsTextures.shouldThrottle(throttlekey, throttleRate) do
+function AmakHealsTextures.shouldThrottle(throttlekey, throttleRate)
 	-- need to call AmakHealsTextures.initThrottleTick(throttlekey) first
 	if not AmakHealsTextures.throttleKeys[throttlekey] then return end
 	-- if throttling active
