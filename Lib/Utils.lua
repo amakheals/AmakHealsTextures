@@ -1,5 +1,5 @@
 local AddonName, AmakHealsTextures = ...
-if AmakHealsTextures.BuildFail(80200) then return end
+if AmakHealsTextures.BuildFail(80000) then return end
 
 -- attempt to laod addon as evn var
 _G[AddonName] = AmakHealsTextures
