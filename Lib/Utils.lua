@@ -1,5 +1,8 @@
 local AddonName, AmakHealsTextures = ...
-if AmakHealsTextures.BuildFail(80000) then return end
+if AmakHealsTextures.BuildFail(80200) then return end
+
+-- attempt to laod addon as evn var
+_G[AddonName] = AmakHealsTextures
 
 --WoW API / Variables
 local IsAddOnLoaded = IsAddOnLoaded
@@ -8,7 +11,7 @@ local IsAddOnLoaded = IsAddOnLoaded
 if not select(1, IsAddOnLoaded("WeakAuras")) then
 	loaded, reason = LoadAddOn("WeakAuras")
 	if not loaded then
-		AmakHealsTextures.print("Can't Load Optional Dependencys: " .. "WeakAuras")
+		AmakHealsTextures.print("Can't Load Optional Dependencies: " .. "WeakAuras")
 	end
 end
 local WeakAuras = WeakAuras

@@ -18,6 +18,6 @@ function AmakHealsTextures.BuildFail(Min, Over)
 end
 
 -- debug print function
-function AmakHealsTextures.print(...)
-	return print(AmakHealsTextures.AddonTitleHeader .. ": " .. ...)
+function AmakHealsTextures.print(msg)
+	return print(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
 end
