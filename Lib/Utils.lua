@@ -1,9 +1,6 @@
 local AddonName, AmakHealsTextures = ...
 if AmakHealsTextures.BuildFail(80205) then return end
 
---WoW API / Variables
-local IsAddOnLoaded = IsAddOnLoaded
-
 -- check for optional dependency WeakAuras
 if not select(1, IsAddOnLoaded("WeakAuras")) then
 	loaded, reason = LoadAddOn("WeakAuras")
@@ -18,6 +15,7 @@ if select(1, IsAddOnLoaded("WeakAuras")) then
 	else
 		AmakHealsTextures.print("Found Optional Dependency: " .. "WeakAuras")
 		WeakAuras.RegisterAddon(AddonName, AmakHealsTextures.PlainAddonTitle, "Data sourced from " .. AmakHealsTextures.PlainAddonTitle, "Interface\\Addons\\" .. AmakHealsTextures.name .. "\\MiscTexturePack\\Logo.blp")
+		AmakHealsTextures.print("Enabled Optional Dependency: " .. "WeakAuras")
 	end
 -- local spellsTextureMap = {}
 else
@@ -45,7 +43,7 @@ end
 function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate)
 	-- need to call AmakHealsTextures.initThrottleTick(key) first
 	if not AmakHealsTextures.throttleKeys[resetkey] then return end
-	local theTime = GetTime()
+	local theTime = floor(GetTime())
 	if (not AmakHealsTextures.lastTick) or (AmakHealsTextures.lastTick < (theTime - throttleRate)) then
 		AmakHealsTextures.lastTick = theTime
 	end
@@ -59,7 +57,7 @@ end
 
 function AmakHealsTextures.shouldThrottle(throttlekey, throttleRate)
 	-- need to call AmakHealsTextures.initThrottleTick(throttlekey) first
-	if not AmakHealsTextures.throttleKeys[throttlekey] then return end
+	if not AmakHealsTextures.throttleKeys[throttlekey] then return false end
 	-- if throttling active
 	if AmakHealsTextures.throttleKeys[throttlekey] then
 		if AmakHealsTextures.throttleStates[throttlekey] then
