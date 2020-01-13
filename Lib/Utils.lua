@@ -1,8 +1,5 @@
 local AddonName, AmakHealsTextures = ...
-if AmakHealsTextures.BuildFail(80000) then return end
-
--- attempt to laod addon as evn var
-_G[AddonName] = AmakHealsTextures
+if AmakHealsTextures.BuildFail(80205) then return end
 
 --WoW API / Variables
 local IsAddOnLoaded = IsAddOnLoaded
