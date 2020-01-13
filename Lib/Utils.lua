@@ -29,7 +29,7 @@ end
 -- set aura throttle types
 AmakHealsTextures.throttleKeys = (AmakHealsTextures.throttleKeys or {})
 
-AmakHealsTextures.throttleKeys.Add("default")
+AmakHealsTextures.throttleKeys["default"] = 0
 
 --set aura throttle states --
 AmakHealsTextures.throttleStates = (AmakHealsTextures.throttleStates or {})
