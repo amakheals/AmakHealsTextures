@@ -6,7 +6,7 @@ local GetBuildInfo = GetBuildInfo
 
 -- configure addon data
 AmakHealsTextures.Name = select(1, GetAddOnInfo(AddonName))
-AmakHealsTextures.Build = select(4, GetBuildInfo(AddonName))
+AmakHealsTextures.Build = select(4, GetBuildInfo())
 AmakHealsTextures.Author = select(3, GetAddOnInfo(AddonName))
 AmakHealsTextures.AddonTitle = select(2, GetAddOnInfo(AddonName))
 AmakHealsTextures.PlainAddonTitle = AmakHealsTextures.AddonTitle:gsub("|c........", ""):gsub("|r", "")
