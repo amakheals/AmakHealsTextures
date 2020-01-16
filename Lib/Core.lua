@@ -21,3 +21,12 @@ end
 function AmakHealsTextures.print(msg)
 	return print(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
 end
+
+-- addon paths
+
+-- internal path function
+function AmakHealsTextures.getDir(dirstub)
+	if not dirstub then dirstub = "" end
+	local path = "Interface\\" .. "AddOns" AmakHealsTextures.Name
+        return print(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
+end
