@@ -1,9 +1,8 @@
 local AddonName, AmakHealsTextures = ...
 if AmakHealsTextures.BuildFail(80300) then return end
 
---WoW API / Variables
-local IsAddOnLoaded = IsAddOnLoaded
-local LoadAddOn = LoadAddOn
+-- WoW API / Variables
+-- luacheck: globals IsAddOnLoaded LoadAddOn
 
 -- check for optional dependency WeakAuras
 if not select(1, IsAddOnLoaded("WeakAuras")) then

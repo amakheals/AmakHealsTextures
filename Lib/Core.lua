@@ -1,9 +1,7 @@
 local AddonName, AmakHealsTextures = ...
 
---WoW API / Variables
-local GetAddOnInfo = GetAddOnInfo
-local GetBuildInfo = GetBuildInfo
-local ConsoleAddMessage = ConsoleAddMessage
+-- WoW API / Variables
+-- luacheck: globals GetAddOnInfo GetBuildInfo ConsoleAddMessage
 
 -- configure addon data
 AmakHealsTextures.Name = select(1, GetAddOnInfo(AddonName))
@@ -26,7 +24,7 @@ end
 -- debug log function
 function AmakHealsTextures.log(msg)
 	local logmsg = AmakHealsTextures.AddonTitleHeader .. ": " .. msg
-	return ConsoleAddMessage(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
+	return ConsoleAddMessage(logmsg)
 end
 
 -- addon paths
