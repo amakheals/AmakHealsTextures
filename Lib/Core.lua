@@ -3,6 +3,7 @@ local AddonName, AmakHealsTextures = ...
 --WoW API / Variables
 local GetAddOnInfo = GetAddOnInfo
 local GetBuildInfo = GetBuildInfo
+local ConsoleAddMessage = ConsoleAddMessage
 
 -- configure addon data
 AmakHealsTextures.Name = select(1, GetAddOnInfo(AddonName))
@@ -22,11 +23,17 @@ function AmakHealsTextures.print(msg)
 	return print(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
 end
 
+-- debug log function
+function AmakHealsTextures.log(msg)
+	local logmsg = AmakHealsTextures.AddonTitleHeader .. ": " .. msg
+	return ConsoleAddMessage(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
+end
+
 -- addon paths
 
 -- internal path function
 function AmakHealsTextures.getDir(dirstub)
-	if not dirstub then dirstub = "" end
-	local path = "Interface\\" .. "AddOns" AmakHealsTextures.Name
-        return print(AmakHealsTextures.AddonTitleHeader .. ": " .. msg)
+	if (not dirstub) then dirstub = "" end
+	local path = ("Interface\\AddOns\\" .. AddonName .. "\\" .. dirstub)
+        return path
 end
