@@ -2,16 +2,16 @@ local AddonName, AmakHealsTextures = ...
 if AmakHealsTextures.BuildFail(80300) then return end
 
 -- WoW API / Variables
--- luacheck: globals IsAddOnLoaded LoadAddOn
+-- luacheck: globals IsAddOnLoaded LoadAddOn floor GetTime, ignore WeakAuras
 
 -- check for optional dependency WeakAuras
 if not select(1, IsAddOnLoaded("WeakAuras")) then
-	loaded, reason = LoadAddOn("WeakAuras")
+	local loaded, _ = LoadAddOn("WeakAuras")
 	if not loaded then
 		AmakHealsTextures.log("Can't Load Optional Dependencies: " .. "WeakAuras")
 	end
 end
-local WeakAuras = WeakAuras
+
 if select(1, IsAddOnLoaded("WeakAuras")) then
 	if not WeakAuras then
 		AmakHealsTextures.log("Can't Find Optional Dependencys")
@@ -43,13 +43,15 @@ function AmakHealsTextures.initThrottleTick(key)
 end
 
 function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate)
-	-- need to call AmakHealsTextures.initThrottleTick(key) first
+	-- need to call AmakHealsTextures.initThrottleTick(resetkey) first
 	if not AmakHealsTextures.throttleKeys[resetkey] then return end
-	local theTime = floor(GetTime())
+	local theTime = floor(GetTime()
 	if (not AmakHealsTextures.lastTick) or (AmakHealsTextures.lastTick < (theTime - throttleRate)) then
 		AmakHealsTextures.lastTick = theTime
 	end
-	if (not AmakHealsTextures.throttleStates[resetkey]) or (AmakHealsTextures.throttleKeys[resetkey] < (AmakHealsTextures.lastTick - throttleRate)) then
+	local precheck = ((not AmakHealsTextures.throttleStates[resetkey]) or false)
+	local postcheck = (AmakHealsTextures.throttleKeys[resetkey] < (AmakHealsTextures.lastTick - throttleRate))
+	if precheck or (postcheck or false) then
 		AmakHealsTextures.throttleKeys[resetkey] = AmakHealsTextures.lastTick
 		-- deactivate throttle
 		AmakHealsTextures.throttleStates[resetkey] = false
