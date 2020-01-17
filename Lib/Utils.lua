@@ -17,7 +17,10 @@ if select(1, IsAddOnLoaded("WeakAuras")) then
 		AmakHealsTextures.log("Can't Find Optional Dependencys")
 	else
 		AmakHealsTextures.log("Found Optional Dependency: " .. "WeakAuras")
-		WeakAuras.RegisterAddon(AddonName, AmakHealsTextures.PlainAddonTitle, "Data sourced from " .. AmakHealsTextures.PlainAddonTitle, "Interface\\Addons\\" .. AmakHealsTextures.Name .. "\\MiscTexturePack\\Logo.blp")
+		local description = "Data sourced from " .. AmakHealsTextures.PlainAddonTitle
+		local logopath = AmakHealsTextures.getTexturePackPath("Misc") .. "\\Logo.blp"
+		local PlainAddonTitle  = AmakHealsTextures.PlainAddonTitle
+		WeakAuras.RegisterAddon(AddonName, PlainAddonTitle, description, logopath)
 		AmakHealsTextures.log("Enabled Optional Dependency: " .. "WeakAuras")
 	end
 -- local spellsTextureMap = {}

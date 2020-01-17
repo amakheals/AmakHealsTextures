@@ -28,11 +28,24 @@ function AmakHealsTextures.log(msg)
 end
 
 -- addon paths
-
+AmakHealsTextures.TexturePacks = {
+	"Priest", -- builtin
+	"Paladin", -- builtin
+	"Monk", -- if installed
+	"Misc", -- builtin
+}
 
 -- internal path function
 function AmakHealsTextures.getDir(dirstub)
 	if (not dirstub) then dirstub = "" end
 	local path = ("Interface\\AddOns\\" .. AddonName .. "\\" .. dirstub)
+        return path
+end
+
+-- internal Texture Pack util path function
+function AmakHealsTextures.getTexturePackPath(somepack)
+	if (not somepack) then return nil end
+	if not tContains(AmakHealsTextures.TexturePacks)
+	local path = AmakHealsTextures.getDir(somepack .. "TexturePack")
         return path
 end
