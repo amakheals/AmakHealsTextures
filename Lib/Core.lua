@@ -1,7 +1,7 @@
 local AddonName, AmakHealsTextures = ...
 
 -- WoW API / Variables
--- luacheck: globals GetAddOnInfo GetBuildInfo ConsoleAddMessage
+-- luacheck: globals GetAddOnInfo GetBuildInfo ConsoleAddMessage tContains
 
 -- configure addon data
 AmakHealsTextures.Name = select(1, GetAddOnInfo(AddonName))
@@ -45,7 +45,7 @@ end
 -- internal Texture Pack util path function
 function AmakHealsTextures.getTexturePackPath(somepack)
 	if (not somepack) then return nil end
-	if not tContains(AmakHealsTextures.TexturePacks)
+	if not tContains(AmakHealsTextures.TexturePacks, somepack) then return nil end
 	local path = AmakHealsTextures.getDir(somepack .. "TexturePack")
         return path
 end
