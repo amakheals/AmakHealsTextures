@@ -45,7 +45,7 @@ end
 function AmakHealsTextures.resetThrottleTick(resetkey, throttleRate)
 	-- need to call AmakHealsTextures.initThrottleTick(resetkey) first
 	if not AmakHealsTextures.throttleKeys[resetkey] then return end
-	local theTime = floor(GetTime()
+	local theTime = floor(GetTime())
 	if (not AmakHealsTextures.lastTick) or (AmakHealsTextures.lastTick < (theTime - throttleRate)) then
 		AmakHealsTextures.lastTick = theTime
 	end

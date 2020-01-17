@@ -29,6 +29,7 @@ end
 
 -- addon paths
 
+
 -- internal path function
 function AmakHealsTextures.getDir(dirstub)
 	if (not dirstub) then dirstub = "" end
