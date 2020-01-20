@@ -35,11 +35,19 @@ AmakHealsTextures.TexturePacks = {
 	"Misc", -- builtin
 }
 
+AmakHealsTextures.RoundIconPacks = {
+	"Priest", -- builtin
+	"Paladin", -- builtin
+	"Monk", -- if installed
+	"Misc", -- builtin
+	"Druid", -- builtin
+}
+
 -- internal path function
 function AmakHealsTextures.getDir(dirstub)
 	if (not dirstub) then dirstub = "" end
 	local path = ("Interface\\AddOns\\" .. AddonName .. "\\" .. dirstub)
-        return path
+	return path
 end
 
 -- internal Texture Pack util path function
@@ -47,5 +55,13 @@ function AmakHealsTextures.getTexturePackPath(somepack)
 	if (not somepack) then return nil end
 	if not tContains(AmakHealsTextures.TexturePacks, somepack) then return nil end
 	local path = AmakHealsTextures.getDir(somepack .. "TexturePack")
-        return path
+	return path
+end
+
+-- internal Texture Pack util path function
+function AmakHealsTextures.getRoundIconPackPath(somepack)
+	if (not somepack) then return nil end
+	if not tContains(AmakHealsTextures.RoundIconPacks, somepack) then return nil end
+	local path = AmakHealsTextures.getDir("Round" .. somepack .. "Icons")
+	return path
 end
